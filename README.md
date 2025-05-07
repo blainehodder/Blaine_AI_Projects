@@ -44,6 +44,27 @@ Welcome to my AI portfolio. I’m building applied machine learning and deep lea
 
 ---
 
+### 3. Brent Price Predictor — Week 4 (Decision Tree Model)
+
+**Goal:** Replace linear regression with a non-linear model (Decision Tree) to capture complex patterns in Brent price data.
+
+**Tools:** Python, pandas, scikit-learn, matplotlib
+
+**Model:** Decision Tree Regressor with price_previous, pct_change, and ma_5 as input features.
+
+**Results:** 
+- Model trained and tested on historical Brent price data.
+- Mean Absolute Error (MAE): $1.64
+
+**Key Insights:**
+- Decision trees automatically handle non-linear relationships and feature interactions.
+- Feature importances revealed which engineered features contributed most to predictions.
+- This is the first step toward building models that can eventually inform trading signals, not just predictions.
+
+**Next Steps:** Implement ensemble models (Random Forest, XGBoost) and begin evaluating whether model outputs can translate into tradeable signals with backtesting.
+
+---
+
 ### 3. Oil News Sentiment Analyzer (Coming Month 3)
 - NLP model classifying sentiment in oil market headlines.
 
