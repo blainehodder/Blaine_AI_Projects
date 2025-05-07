@@ -63,6 +63,7 @@ Welcome to my AI portfolio. I’m building applied machine learning and deep lea
 
 **Next Steps:** Implement ensemble models (Random Forest, XGBoost) and begin evaluating whether model outputs can translate into tradeable signals with backtesting.
 
+[View the notebook here](Brent_Price_Predictor_Week4.ipynb)
 ---
 
 ### 3. Oil News Sentiment Analyzer (Coming Month 3)
