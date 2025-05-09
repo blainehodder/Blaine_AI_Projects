@@ -100,17 +100,18 @@ Tune hyperparameters. Add time series CV. Expand feature set.
 
 **Additions:**
 - Trader-style regime flags: curve structure (contango/backwardation), volatility buckets
-- Lagged VADER sentiment score (from oil-related headlines)
-- Proxy inventory "surprise" based on 4-week rolling mean
-- Shift from regression to XGBoost 3-class classification (up / flat / down)
+- Lagged sentiment score (simulated for prototype purposes)
+- Multi-class classification (long / flat / short signal labels)
 
-**Key outputs:**
-- Classification performance by market regime
-- Sentiment overlay analysis (filtering/fading signals)
-- Exploratory SHAP visualization for signal attribution (optional)
+**Model:** XGBoost Classifier (3 classes)  
+**Outputs:**
+- Classification report on directional signal prediction
+- Stratified return analysis by predicted class
+- Feature importance visualization (gain-based)
+- SHAP analysis stubbed in for later interpretability
 
 **Next steps:**  
-Polish model and migrate to `Trading_Signal_Research` once performance is scoped and documented.
+Replace simulated sentiment with real headline data. Migrate model to applied research repo once grounded.
 
 [View notebook](week-07-brent-wti-regime-signal/brent_wti_regime_signal.ipynb)
 
@@ -130,7 +131,7 @@ Polish model and migrate to `Trading_Signal_Research` once performance is scoped
 - Engineered financial features (lags, % changes, moving averages)
 - Built interpretable ensemble models (Random Forest, XGBoost)
 - Learned and manually validated model mechanics (split math, boosting logic)
-- Incorporated trader logic and NLP sentiment into early directional signal prototypes
+- Incorporated trader logic and sentiment overlay into early directional signal prototypes
 
 ---
 
