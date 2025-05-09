@@ -3,9 +3,12 @@
 Welcome to my applied machine learning portfolio with a focus on commodity trading and market prediction.
 
 This portfolio documents my learning and development process, emphasizing:
-- Transparent performance reporting.
-- Practical models relevant to physical and financial commodity markets.
-- Deep understanding of model mechanics, not just code execution.
+
+- Transparent performance reporting  
+- Practical models relevant to physical and financial commodity markets  
+- Deep understanding of model mechanics, not just code execution  
+
+---
 
 ## Projects
 
@@ -13,10 +16,8 @@ This portfolio documents my learning and development process, emphasizing:
 
 **Goal:** Build a simple linear regression model to predict daily Brent prices.
 
-**Tools:** Python, pandas, scikit-learn, matplotlib
-
-**Results:**  
-MAE: $1.22
+**Tools:** Python, pandas, scikit-learn, matplotlib  
+**Results:** MAE: $1.22  
 
 **Next steps:** Add features such as moving averages, volume, or news sentiment.
 
@@ -29,9 +30,7 @@ MAE: $1.22
 - Percentage change
 - 5-day moving average
 
-**Results:**  
-MAE: $0.62
-
+**Results:** MAE: $0.62  
 **Key insights:**  
 Multivariate regression significantly improved accuracy. Engineered features captured momentum and smoothed volatility.
 
@@ -41,13 +40,10 @@ Multivariate regression significantly improved accuracy. Engineered features cap
 
 ### Brent Price Predictor — Week 4 (Decision Tree Model)
 
-**Goal:** Replace linear regression with a non-linear model to capture complex patterns.
-
+**Goal:** Replace linear regression with a non-linear model to capture complex patterns.  
 **Model:** Decision Tree Regressor  
-**Features:** Lagged price, percentage change, moving average
-
-**Results:**  
-MAE: $1.64
+**Features:** Lagged price, percentage change, moving average  
+**Results:** MAE: $1.64  
 
 **Key insights:**  
 Tree models handled non-linearities but showed a tendency to overfit without regularization.
@@ -58,17 +54,14 @@ Tree models handled non-linearities but showed a tendency to overfit without reg
 
 ### Brent-WTI Spread Predictor — Week 5 (Random Forest Model)
 
-**Goal:** Model the monthly Brent-WTI spread using ensemble methods.
-
+**Goal:** Model the monthly Brent-WTI spread using ensemble methods.  
 **Model:** Random Forest (100 trees, max depth 5)  
 **Features:**  
 - Spread_Lag1  
 - Spread_Pct_Change  
 - Spread_MA5
 
-**Results:**  
-MAE: $0.82
-
+**Results:** MAE: $0.82  
 **Feature importance:**  
 - Spread_Lag1: 0.854 (dominant predictor, confirming mean-reversion tendencies)
 
@@ -81,54 +74,74 @@ Random Forest captured non-linear relationships and provided a robust baseline. 
 
 ### Brent-WTI Spread Predictor — Week 6 (XGBoost Model)
 
-**Goal:** Apply XGBoost to improve upon the Week 5 Random Forest benchmark.
-
+**Goal:** Apply XGBoost to improve upon the Week 5 Random Forest benchmark.  
 **Model:** XGBoost Regressor  
-**Features:** Same as Week 5
+**Features:** Same as Week 5  
+**Results:** MAE: $0.87
 
-**Results:**  
-MAE: $0.87 (slightly higher than the Random Forest baseline, potentially due to conservative hyperparameters and limited tree count)
-
-**Key learnings:**  
+**Key learnings:**
 - Deep understanding of XGBoost mechanics:
-    - How trees minimize error using gradients and Hessians.
-    - Gain calculation at split points.
-    - Role of learning rate as a regularization mechanism.
-- Manually validated Gain calculations for all candidate splits in Tree 1 using dummy data.
-- Developed an intuitive understanding of how successive trees iteratively reduce residual errors.
+  - Gradient/Hessian-based split optimization
+  - Gain calculation at split points
+  - Regularization via learning rate, depth, subsampling
+- Manually validated Gain calculations using dummy data
+- Developed intuition for residual error reduction across boosting rounds
 
 **Next steps:**  
-Tune learning rate, tree depth, and subsampling. Introduce time series cross-validation. Expand feature set.
+Tune hyperparameters. Add time series CV. Expand feature set.
 
 [View notebook](Brent_WTI_Spread_Predictor_Week6_XGBoost.ipynb)
 
 ---
 
+### Brent-WTI Regime-Sliced Signal — Week 7 (Classification with Sentiment Overlay)
+
+**Goal:** Improve directional prediction of Brent-WTI spread moves by conditioning on market structure and layering in headline sentiment.
+
+**Additions:**
+- Trader-style regime flags: curve structure (contango/backwardation), volatility buckets
+- Lagged VADER sentiment score (from oil-related headlines)
+- Proxy inventory "surprise" based on 4-week rolling mean
+- Shift from regression to XGBoost 3-class classification (up / flat / down)
+
+**Key outputs:**
+- Classification performance by market regime
+- Sentiment overlay analysis (filtering/fading signals)
+- Exploratory SHAP visualization for signal attribution (optional)
+
+**Next steps:**  
+Polish model and migrate to `Trading_Signal_Research` once performance is scoped and documented.
+
+[View notebook](week-07-brent-wti-regime-signal/brent_wti_regime_signal.ipynb)
+
+---
+
 ## Upcoming Work
 
-- Week 7+: Time series cross-validation, ARIMA/SARIMA exploration, and testing whether model outputs can provide actionable trading signals.
-- Longer term: Deep learning models (LSTM), backtesting frameworks, and developing tear sheets.
+- Week 8: Composite feature signal table and conditional classifiers  
+- Week 9+: Regime-aware signal stacking, SHAP-based feature filtering  
+- Long-term: Backtesting framework, tear sheets, LSTM exploration, VaR & stress testing
 
 ---
 
 ## Summary of Progress
 
-- Built and tested baseline linear and tree-based models.
-- Engineered financial features including lags, percentage changes, and moving averages. Obviously simple metrics which can be easily tweaked in the future and optimized for trading.
-- Implemented Random Forest and XGBoost with a deep understanding of split mechanics, Gain calculation, and regularization.
-- Learned to calculate and validate boosting decisions manually.
+- Built and tested linear and tree-based models on price and spread data
+- Engineered financial features (lags, % changes, moving averages)
+- Built interpretable ensemble models (Random Forest, XGBoost)
+- Learned and manually validated model mechanics (split math, boosting logic)
+- Incorporated trader logic and NLP sentiment into early directional signal prototypes
 
 ---
 
 ## About Me
 
-I work in refinery supply and physical oil marketing and supply.  
-My goal is to integrate machine learning into trading signals, risk metrics, and portfolio construction strategies used in commodity markets.
+I work in refinery supply and physical oil marketing and logistics.  
+My goal is to integrate machine learning into trading signals, portfolio structure, and risk metrics for real-world commodity market application.
 
 ---
 
 ## Contact
 
-LinkedIn: [blainehodder](https://www.linkedin.com/in/blainehodder/)  
-Hugging Face: [blainehodder](https://huggingface.co/blainehodder)
-
+**LinkedIn**: [blainehodder](https://www.linkedin.com/in/blainehodder/)  
+**Hugging Face**: [blainehodder](https://huggingface.co/blainehodder)
